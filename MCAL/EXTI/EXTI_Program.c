@@ -23,6 +23,7 @@ extern ErrorState_t EXTI_enu_Initialization(void)
     {
         enu_SetMode(EXTI_astr_INTList[Local_u8_Counter].INTNumber, EXTI_astr_INTList[Local_u8_Counter].INTMode);
         enu_SetSenseLevel(EXTI_astr_INTList[Local_u8_Counter].INTNumber, EXTI_astr_INTList[Local_u8_Counter].INTSenseLevel);
+        enu_SetFlagValue(EXTI_astr_INTList[Local_u8_Counter].INTNumber, EXTI_HIGH);
     }
     
     Local_u8_ErrorFlag = ES_OK;
@@ -96,11 +97,11 @@ extern ErrorState_t EXTI_enu_GetPIF (u8 Copy_u8_INTNumber, u8* Copy_pu8_Result)
     return Local_u8_ErrorFlag;
 }
 
-extern ErrorState_t EXTI_enu_SeTPIF (u8 Copy_u8_INTNumber, u8 Copy_u8_Value)
+extern ErrorState_t EXTI_enu_ClearINTFx (u8 Copy_u8_INTNumber)
 {
     u8 Local_u8_ErrorFlag = ES_NOK;
 
-    Local_u8_ErrorFlag = enu_SetFlagValue(Copy_u8_INTNumber, Copy_u8_Value);
+    Local_u8_ErrorFlag = enu_SetFlagValue(Copy_u8_INTNumber, EXTI_HIGH);
 
     return Local_u8_ErrorFlag;
 }

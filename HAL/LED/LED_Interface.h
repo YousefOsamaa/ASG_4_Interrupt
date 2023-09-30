@@ -19,9 +19,13 @@ extern ErrorState_t LED_enu_TurnOnLED(u8 Copy_u8_LEDNumber);
 
 extern ErrorState_t LED_enu_TurnOffLED(u8 Copy_u8_LEDNumber);
 
+extern ErrorState_t LED_enu_TurnOnCombination(u8 Copy_u8_Combination);
+
 extern ErrorState_t LED_enu_TurnOnAllLEDs (void);
 
 extern ErrorState_t LED_enu_TurnOffAllLEDs (void);
+
+extern ErrorState_t LED_enu_GetLEDCount(u8* Copy_u8_Count);
 
 
 #endif

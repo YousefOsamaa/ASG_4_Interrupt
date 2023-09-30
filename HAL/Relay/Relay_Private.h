@@ -1,4 +1,0 @@
-#ifndef RELAY_PRIVATE_FILE
-#define RELAY_PRIVATE_FILE
-
-#endif

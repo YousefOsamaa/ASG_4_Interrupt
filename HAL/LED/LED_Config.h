@@ -10,14 +10,16 @@
 #define LED_COUNT      3
 
 //LEDs Groups and Pins
-#define LED_0_GROUP        DIO_PIN_GROUP_D
-#define LED_0_PIN          DIO_PIN_2
+#define LED_0_GROUP        DIO_PIN_GROUP_A
+#define LED_0_PIN          DIO_PIN_0
 
-#define LED_1_GROUP        DIO_PIN_GROUP_D 
+#define LED_1_GROUP        DIO_PIN_GROUP_A 
 #define LED_1_PIN          DIO_PIN_1
 
-#define LED_2_GROUP        DIO_PIN_GROUP_D
-#define LED_2_PIN          DIO_PIN_0
+#define LED_2_GROUP        DIO_PIN_GROUP_A
+#define LED_2_PIN          DIO_PIN_2
+
+
 
 
 //LED struct

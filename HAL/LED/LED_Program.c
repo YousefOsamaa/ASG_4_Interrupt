@@ -63,6 +63,37 @@ extern ErrorState_t LED_enu_TurnOffLED(u8 Copy_u8_LEDNumber)
     return Local_u8_ErrorFlag;
 }
 
+extern ErrorState_t LED_enu_TurnOnCombination(u8 Copy_u8_Combination)
+{
+    u8 Local_u8_ErrorFlag = ES_OK;
+    
+    u8 Local_u8_TempErrorFlag = ES_OK;
+
+
+    if(Copy_u8_Combination <= 7 )
+    {
+        s8 Local_s8_Counter = 0;
+
+        for(Local_s8_Counter = Copy_u8_Combination - 1; Local_s8_Counter >= 0; Local_s8_Counter-- )
+        {
+           Local_u8_TempErrorFlag = DIO_enu_SetPinValue(LED_astr_LEDsList[Local_s8_Counter].LED_Group, LED_astr_LEDsList[Local_s8_Counter].LED_Pin, (Copy_u8_Combination >> Local_s8_Counter) & 1 );
+
+            if(Local_u8_TempErrorFlag == ES_NOK)
+            {
+                Local_u8_ErrorFlag = ES_NOK;
+            }
+            
+        }
+        
+    } 
+    else
+    {
+        Local_u8_ErrorFlag = ES_OUT_OF_RANGE;
+    }
+
+    return Local_u8_ErrorFlag;
+}
+
 extern ErrorState_t LED_enu_TurnOnAllLEDs (void)
 {
     u8 Local_u8_ErrorFlag = ES_NOK;
@@ -87,11 +118,28 @@ extern ErrorState_t LED_enu_TurnOffAllLEDs (void)
 
     for(Local_u8_Counter = 0; Local_u8_Counter < LED_u8_LEDsCount; Local_u8_Counter++)
     {
-        DIO_enu_SetPinValue(LED_astr_LEDsList[Local_u8_Counter].LED_Group,LED_astr_LEDsList[Local_u8_Counter].LED_Pin,DIO_LOW);
+        DIO_enu_SetPinValue(LED_astr_LEDsList[Local_u8_Counter].LED_Group,LED_astr_LEDsList[Local_u8_Counter].LED_Pin, DIO_LOW);
     }
     
     //Error Flags handling to be done later
     Local_u8_ErrorFlag = ES_OK;
     
+    return Local_u8_ErrorFlag;
+}
+
+extern ErrorState_t LED_enu_GetLEDCount(u8* Copy_u8_Count)
+{
+    u8 Local_u8_ErrorFlag = ES_NOK;
+
+    if(Copy_u8_Count)
+    {
+        *Copy_u8_Count = LED_u8_LEDsCount;
+
+        Local_u8_ErrorFlag = ES_OK;
+    }
+    else
+    {
+        Local_u8_ErrorFlag = ES_NULL_POINTER;
+    }
     return Local_u8_ErrorFlag;
 }

@@ -1,0 +1,10 @@
+#ifndef LEDLIGHTER_CONFIG_FILE
+#define LEDLIGHTER_CONFIG_FILE
+
+
+#define LED_LIGHTER_LED_COUNT  3
+
+
+
+
+#endif

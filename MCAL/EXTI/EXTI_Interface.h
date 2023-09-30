@@ -34,7 +34,7 @@ extern ErrorState_t EXTI_enu_INTMode(u8 Copy_u8_INTNumber, u8 Copy_u8_Mode);
 
 extern ErrorState_t EXTI_enu_GetPIF (u8 Copy_u8_INTNumber, u8* Copy_pu8_Result);
 
-extern ErrorState_t EXTI_enu_SeTPIF (u8 Copy_u8_INTNumber, u8 Copy_u8_Value);
+extern ErrorState_t EXTI_enu_ClearINTFx (u8 Copy_u8_INTNumber);
 
 extern ErrorState_t EXTI_enu_SetCallBack(u8 Copy_u8_INTNumber, void (* Copy_pfun_AppFunction)(void), void* Copy_pvid_Parameters);
 

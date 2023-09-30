@@ -1,4 +1,0 @@
-#ifndef BUZZER_PRIVATE_FILE
-#define BUZZER_PRIVATE_FILE
-
-#endif
